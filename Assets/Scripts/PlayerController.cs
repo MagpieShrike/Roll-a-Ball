@@ -72,4 +72,12 @@ public class PlayerController : MonoBehaviour
             winText.text = "You Win!";
         }
     }
+
+    void LevelUpdate()
+    {
+        if (score == 12)
+        {
+            
+        }
+    }
 }
