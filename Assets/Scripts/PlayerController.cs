@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
     void SetScoreText()
     {
         scoreText.text = "Score: " + score.ToString();
-        if (score == 12)
+        if (score == 28)
         {
             winText.text = "You Win!";
         }
