@@ -9,6 +9,7 @@ TagManager:
   - L2
   - WallA
   - WallB
+  - Exit
   layers:
   - Default
   - TransparentFX
