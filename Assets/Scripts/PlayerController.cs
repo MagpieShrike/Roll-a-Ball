@@ -9,19 +9,28 @@ public class PlayerController : MonoBehaviour
     public Text countText;
     public Text scoreText; 
     public Text winText;
+    public Text livesText;
 
     private Rigidbody rb;
     private int count;
     private int score;
+    private int lives;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+
         count = 0;
         SetCountText();
+
         score = 0;
         SetScoreText();
+
+        lives = 3;
+        setLivesText();
+
         winText.text = "";
+
     }
 
     void FixedUpdate()
@@ -58,12 +67,34 @@ public class PlayerController : MonoBehaviour
             SetCountText();
             score = score - 1;
             SetScoreText();
+            lives = lives - 1;
+            setLivesText();
         }
     }
 
     void SetCountText()
     {
         countText.text = "Count: " + count.ToString();
+    }
+
+    void SetScoreText()
+    {
+        scoreText.text = "Score: " + score.ToString();
+        if (score == 28)
+        {
+            winText.text = "You Win!";
+        }
+    }
+
+    void setLivesText()
+    {
+        livesText.text = "Lives: " + lives.ToString();
+
+        if (lives == 0)
+        {
+            winText.text = "You Lose";
+            GameObject.FindWithTag("Player").SetActive(false);
+        }
     }
 
     void LevelUpdate()
@@ -88,16 +119,5 @@ public class PlayerController : MonoBehaviour
         {
             GameObject.FindWithTag("Exit").SetActive(false);
         }
-    }
-
-    void SetScoreText()
-    {
-        scoreText.text = "Score: " + score.ToString();
-        if (score == 28)
-        {
-            winText.text = "You Win!";
-        }
-    }
-
-    
+    } 
 }
