@@ -5,19 +5,12 @@ using UnityEngine;
 public class Barrier : MonoBehaviour
 {
 
-    private Rigidbody rb;
-    private float speed;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-        speed = 7.0f;
-    }
+    private float min = 13;
+    private float max = 21;
 
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = transform.forward * speed;
+        transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.PingPong(Time.time * 4, max - min) + min);
     }
 }
