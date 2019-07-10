@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey("escape"))
             Application.Quit();
+
+        LevelUpdate();
     }
 
     // Destroy everything that enters the trigger
@@ -64,6 +66,30 @@ public class PlayerController : MonoBehaviour
         countText.text = "Count: " + count.ToString();
     }
 
+    void LevelUpdate()
+    {
+        if (score == 12)
+        {
+            GameObject.FindWithTag("Exit").SetActive(false);
+        }
+        else if (score == 11 && count == 13)
+        {
+            GameObject.FindWithTag("Exit").SetActive(false);
+        }
+        else if (score == 10 && count == 14)
+        {
+            GameObject.FindWithTag("Exit").SetActive(false);
+        }
+        else if (score == 9 && count == 15)
+        {
+            GameObject.FindWithTag("Exit").SetActive(false);
+        }
+        else if (score == 8 && count == 16)
+        {
+            GameObject.FindWithTag("Exit").SetActive(false);
+        }
+    }
+
     void SetScoreText()
     {
         scoreText.text = "Score: " + score.ToString();
@@ -73,11 +99,5 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void LevelUpdate()
-    {
-        if (score == 12)
-        {
-            
-        }
-    }
+    
 }
